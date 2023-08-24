@@ -68,7 +68,7 @@ function App() {
 
       <form onSubmit={(e) => handlesubmit(e, )} className="w-screen flex flex-col items-center gap-3">
         <input type="text" onChange={(e) => {setUlkeTahmin(e.target.value); }} className="rounded-full w-1/2 h-8 outline-none text-center" placeholder="Tahminini buraya yaz"/>
-        {ulkeTahmin && (
+        {(ulkeTahmin && yakinTahminler.filter(item => item.toLowerCase().includes(ulkeTahmin.toLowerCase())).length < 20)&& (
           <div className="bg-white">
             {
               yakinTahminler.filter(item => item.toLowerCase().includes(ulkeTahmin.toLowerCase())).map((i,index) => {
